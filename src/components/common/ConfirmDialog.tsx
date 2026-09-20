@@ -31,6 +31,8 @@ export default function ConfirmDialog({
         <div className="mt-2 text-sm leading-relaxed text-slate-600">{message}</div>
         {requireTypedWord && (
           <input
+            id="confirm-typed-word"
+            name="confirmTypedWord"
             autoFocus
             value={typed}
             onChange={(e) => setTyped(e.target.value)}

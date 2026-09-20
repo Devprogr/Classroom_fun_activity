@@ -121,6 +121,8 @@ export default function ReportsScreen() {
             <label className="text-xs font-semibold text-slate-400">
               From
               <input
+                id="report-from-date"
+                name="reportFromDate"
                 type="date"
                 value={fromDate}
                 onChange={(e) => setFromDate(e.target.value)}
@@ -130,6 +132,8 @@ export default function ReportsScreen() {
             <label className="text-xs font-semibold text-slate-400">
               To
               <input
+                id="report-to-date"
+                name="reportToDate"
                 type="date"
                 value={toDate}
                 onChange={(e) => setToDate(e.target.value)}
@@ -139,6 +143,8 @@ export default function ReportsScreen() {
             <label className="text-xs font-semibold text-slate-400">
               Student
               <select
+                id="report-student-filter"
+                name="reportStudentFilter"
                 value={studentFilter}
                 onChange={(e) => setStudentFilter(e.target.value)}
                 className="mt-1 block rounded-lg border border-slate-700 bg-slate-900 px-2 py-1.5 text-sm text-stone-100"

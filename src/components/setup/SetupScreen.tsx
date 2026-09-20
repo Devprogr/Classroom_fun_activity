@@ -49,6 +49,8 @@ export default function SetupScreen() {
             <h1 className="text-2xl font-bold">What's your class called?</h1>
             <p className="mt-1 text-sm text-slate-500">Shown at the top of the classroom screen.</p>
             <input
+              id="setup-class-name"
+              name="className"
               autoFocus
               value={className}
               onChange={(e) => setClassName(e.target.value)}
@@ -130,6 +132,8 @@ export default function SetupScreen() {
             </p>
             <div className="mt-5 grid grid-cols-2 gap-3">
               <input
+                id="setup-pin"
+                name="pin"
                 inputMode="numeric"
                 maxLength={4}
                 value={pin}
@@ -138,6 +142,8 @@ export default function SetupScreen() {
                 className="rounded-2xl border border-slate-300 px-4 py-4 text-center text-lg tracking-[0.5em] focus:border-slate-500 focus:outline-none"
               />
               <input
+                id="setup-confirm-pin"
+                name="confirmPin"
                 inputMode="numeric"
                 maxLength={4}
                 value={confirmPin}

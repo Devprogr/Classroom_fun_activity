@@ -68,6 +68,8 @@ export default function BackupSection() {
           Import backup
         </button>
         <input
+          id="backup-import-file"
+          name="backupImportFile"
           ref={fileInputRef}
           type="file"
           accept="application/json"

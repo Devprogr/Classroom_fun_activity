@@ -110,6 +110,8 @@ export default function StudentDetailModal({ studentId, onClose }: StudentDetail
           <div className="flex-1">
             {editingName ? (
               <input
+                id="student-first-name"
+                name="studentFirstName"
                 autoFocus
                 value={nameDraft}
                 onChange={(e) => setNameDraft(e.target.value)}
@@ -198,6 +200,8 @@ export default function StudentDetailModal({ studentId, onClose }: StudentDetail
           </h3>
           <div className="mt-2 flex flex-wrap gap-2">
             <input
+              id="manual-adjust-value"
+              name="manualAdjustValue"
               inputMode="numeric"
               value={adjustValue}
               onChange={(e) => setAdjustValue(e.target.value)}
@@ -205,6 +209,8 @@ export default function StudentDetailModal({ studentId, onClose }: StudentDetail
               className="w-32 rounded-xl border border-slate-300 px-3 py-2 text-base focus:border-slate-500 focus:outline-none"
             />
             <input
+              id="manual-adjust-reason"
+              name="manualAdjustReason"
               value={adjustReason}
               onChange={(e) => setAdjustReason(e.target.value)}
               placeholder="Reason"

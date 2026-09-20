@@ -25,6 +25,8 @@ export default function StudentBulkAddForm({ onAdd, buttonLabel = "Add students"
   return (
     <div>
       <textarea
+        id="student-bulk-add-names"
+        name="studentBulkAddNames"
         value={raw}
         onChange={(e) => setRaw(e.target.value)}
         placeholder={"Paste or type one first name per line, e.g.\nFreya\nOmar\nLucia"}

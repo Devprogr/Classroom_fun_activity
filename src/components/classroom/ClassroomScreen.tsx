@@ -99,6 +99,8 @@ export default function ClassroomScreen() {
         <h1 className="text-2xl font-bold text-stone-100">{state.classInfo.name}</h1>
         <div className="flex flex-wrap items-center gap-2">
           <select
+            id="classroom-sort-mode"
+            name="sortMode"
             value={sortMode}
             onChange={(e) => setSortMode(e.target.value as SortMode)}
             className="rounded-xl border border-slate-700 bg-slate-900 px-3 py-2 text-sm font-medium text-stone-100"

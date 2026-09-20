@@ -10,6 +10,8 @@ function RewardRow({ reward }: { reward: Reward }) {
   return (
     <div className="grid grid-cols-1 items-center gap-2 border-b border-slate-100 py-3 last:border-0 sm:grid-cols-[1fr_100px_130px_auto_auto]">
       <input
+        id={`reward-label-${reward.id}`}
+        name={`reward-label-${reward.id}`}
         value={reward.label}
         onChange={(e) =>
           dispatch({ type: "UPDATE_REWARD", id: reward.id, patch: { label: e.target.value } })
@@ -17,6 +19,8 @@ function RewardRow({ reward }: { reward: Reward }) {
         className="rounded-lg border border-slate-300 px-2 py-1.5 text-sm"
       />
       <input
+        id={`reward-cost-${reward.id}`}
+        name={`reward-cost-${reward.id}`}
         type="number"
         value={reward.cost}
         onChange={(e) =>
@@ -29,6 +33,8 @@ function RewardRow({ reward }: { reward: Reward }) {
         className="rounded-lg border border-slate-300 px-2 py-1.5 text-sm"
       />
       <select
+        id={`reward-scope-${reward.id}`}
+        name={`reward-scope-${reward.id}`}
         value={reward.scope}
         onChange={(e) =>
           dispatch({
@@ -42,8 +48,13 @@ function RewardRow({ reward }: { reward: Reward }) {
         <option value="individual">Individual</option>
         <option value="class">Class</option>
       </select>
-      <label className="flex items-center gap-1.5 text-xs font-medium text-slate-600">
+      <label
+        htmlFor={`reward-active-${reward.id}`}
+        className="flex items-center gap-1.5 text-xs font-medium text-slate-600"
+      >
         <input
+          id={`reward-active-${reward.id}`}
+          name={`reward-active-${reward.id}`}
           type="checkbox"
           checked={reward.active}
           onChange={(e) =>
@@ -113,18 +124,24 @@ export default function RewardsEditor() {
         <p className="mb-2 text-sm font-bold text-slate-600">Add a reward</p>
         <div className="grid grid-cols-1 gap-2 sm:grid-cols-[1fr_100px_130px_auto]">
           <input
+            id="new-reward-label"
+            name="newRewardLabel"
             value={newLabel}
             onChange={(e) => setNewLabel(e.target.value)}
             placeholder="Label"
             className="rounded-lg border border-slate-300 px-2 py-1.5 text-sm"
           />
           <input
+            id="new-reward-cost"
+            name="newRewardCost"
             type="number"
             value={newCost}
             onChange={(e) => setNewCost(e.target.value)}
             className="rounded-lg border border-slate-300 px-2 py-1.5 text-sm"
           />
           <select
+            id="new-reward-scope"
+            name="newRewardScope"
             value={newScope}
             onChange={(e) => setNewScope(e.target.value as RewardScope)}
             className="rounded-lg border border-slate-300 px-2 py-1.5 text-sm"

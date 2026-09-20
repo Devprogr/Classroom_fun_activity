@@ -20,8 +20,12 @@ export default function ClassAndStudentsSection() {
 
   return (
     <div>
-      <label className="block text-sm font-semibold text-slate-600">Class name</label>
+      <label htmlFor="settings-class-name" className="block text-sm font-semibold text-slate-600">
+        Class name
+      </label>
       <input
+        id="settings-class-name"
+        name="settingsClassName"
         value={name}
         onChange={(e) => setName(e.target.value)}
         onBlur={commitName}

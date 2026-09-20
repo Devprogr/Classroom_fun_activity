@@ -16,6 +16,8 @@ function BehaviourRow({ behaviour }: { behaviour: Behaviour }) {
   return (
     <div className="grid grid-cols-1 items-center gap-2 border-b border-slate-100 py-3 last:border-0 sm:grid-cols-[1fr_90px_150px_140px_auto_auto]">
       <input
+        id={`behaviour-label-${behaviour.id}`}
+        name={`behaviour-label-${behaviour.id}`}
         value={behaviour.label}
         onChange={(e) =>
           dispatch({ type: "UPDATE_BEHAVIOUR", id: behaviour.id, patch: { label: e.target.value } })
@@ -23,6 +25,8 @@ function BehaviourRow({ behaviour }: { behaviour: Behaviour }) {
         className="rounded-lg border border-slate-300 px-2 py-1.5 text-sm"
       />
       <input
+        id={`behaviour-value-${behaviour.id}`}
+        name={`behaviour-value-${behaviour.id}`}
         type="number"
         value={behaviour.value}
         onChange={(e) =>
@@ -35,6 +39,8 @@ function BehaviourRow({ behaviour }: { behaviour: Behaviour }) {
         className="rounded-lg border border-slate-300 px-2 py-1.5 text-sm"
       />
       <select
+        id={`behaviour-category-${behaviour.id}`}
+        name={`behaviour-category-${behaviour.id}`}
         value={behaviour.category}
         onChange={(e) =>
           dispatch({
@@ -52,6 +58,8 @@ function BehaviourRow({ behaviour }: { behaviour: Behaviour }) {
         ))}
       </select>
       <input
+        id={`behaviour-note-${behaviour.id}`}
+        name={`behaviour-note-${behaviour.id}`}
         value={behaviour.note ?? ""}
         placeholder="frequency note"
         onChange={(e) =>
@@ -63,8 +71,13 @@ function BehaviourRow({ behaviour }: { behaviour: Behaviour }) {
         }
         className="rounded-lg border border-slate-300 px-2 py-1.5 text-sm"
       />
-      <label className="flex items-center gap-1.5 text-xs font-medium text-slate-600">
+      <label
+        htmlFor={`behaviour-active-${behaviour.id}`}
+        className="flex items-center gap-1.5 text-xs font-medium text-slate-600"
+      >
         <input
+          id={`behaviour-active-${behaviour.id}`}
+          name={`behaviour-active-${behaviour.id}`}
           type="checkbox"
           checked={behaviour.active}
           onChange={(e) =>
@@ -142,18 +155,24 @@ export default function BehavioursEditor() {
         <p className="mb-2 text-sm font-bold text-slate-600">Add a behaviour</p>
         <div className="grid grid-cols-1 gap-2 sm:grid-cols-[1fr_90px_150px_140px_auto]">
           <input
+            id="new-behaviour-label"
+            name="newBehaviourLabel"
             value={newLabel}
             onChange={(e) => setNewLabel(e.target.value)}
             placeholder="Label"
             className="rounded-lg border border-slate-300 px-2 py-1.5 text-sm"
           />
           <input
+            id="new-behaviour-value"
+            name="newBehaviourValue"
             type="number"
             value={newValue}
             onChange={(e) => setNewValue(e.target.value)}
             className="rounded-lg border border-slate-300 px-2 py-1.5 text-sm"
           />
           <select
+            id="new-behaviour-category"
+            name="newBehaviourCategory"
             value={newCategory}
             onChange={(e) => setNewCategory(e.target.value as BehaviourCategory)}
             className="rounded-lg border border-slate-300 px-2 py-1.5 text-sm"
@@ -165,6 +184,8 @@ export default function BehavioursEditor() {
             ))}
           </select>
           <input
+            id="new-behaviour-note"
+            name="newBehaviourNote"
             value={newNote}
             onChange={(e) => setNewNote(e.target.value)}
             placeholder="frequency note (optional)"
