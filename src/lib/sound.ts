@@ -40,8 +40,8 @@ export function playPointsAddedSound() {
   const ctx = getAudioContext();
   if (!ctx) return;
   const now = ctx.currentTime;
-  playTone(ctx, now, 587.33, 0.16, 0.05); // D5
-  playTone(ctx, now + 0.09, 880, 0.22, 0.06); // A5
+  playTone(ctx, now, 587.33, 0.16, 0.16); // D5
+  playTone(ctx, now + 0.09, 880, 0.22, 0.18); // A5
 }
 
 /** Soft two-note falling tone for removing points. Gentle, not a buzzer. */
@@ -49,8 +49,8 @@ export function playPointsRemovedSound() {
   const ctx = getAudioContext();
   if (!ctx) return;
   const now = ctx.currentTime;
-  playTone(ctx, now, 493.88, 0.16, 0.05); // B4
-  playTone(ctx, now + 0.09, 349.23, 0.22, 0.05); // F4
+  playTone(ctx, now, 493.88, 0.16, 0.15); // B4
+  playTone(ctx, now + 0.09, 349.23, 0.22, 0.14); // F4
 }
 
 /** Plays the added/removed chime based on the sign of a points value. */
